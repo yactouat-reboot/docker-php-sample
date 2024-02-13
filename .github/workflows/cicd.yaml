@@ -12,8 +12,10 @@ jobs:
    integration-test:
     runs-on: ubuntu-latest
     steps:
-        - name: integration-test
-          # `run` avec le caractère `|` permet d'écrire plusieurs commandes à la suite
-          run: |
-            docker compose up -d
-            docker compose down
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: integration-test
+        # `run` avec le caractère `|` permet d'écrire plusieurs commandes à la suite
+        run: |
+          docker compose up -d
+          docker compose down
