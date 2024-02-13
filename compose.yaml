@@ -50,6 +50,14 @@ services:
       - DB_HOST=db
       - DB_NAME=example
       - DB_USER=root
+    develop:
+        watch:
+          # `sync`, sycnhroniser les fichiers uniquement;;
+          # autre `action` => `rebuild`, à chaque changement ça rebuild le container;
+          # `sync+restart`, ne va pas rebuild le container, mais va juste redémarrer le processus principal du container
+          - action: sync
+            path: ./src
+            target: /var/www/html
 
   db:
     image: mariadb
