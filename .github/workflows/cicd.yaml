@@ -1,0 +1,19 @@
+name: 4.2 module example 1 CICD pipeline
+
+# ici vous avez le déclencheur de votre pipeline;
+# contrairement à Google Cloud Build, vous pouvez le configurer d'ici
+on:
+  push:
+    branches: ["main"]
+
+# les "jobs" sont les étapes de votre pipeline
+jobs:
+
+   integration-test:
+        runs-on: ubuntu-latest
+        steps:
+            - name:integration-test
+              # `run` avec le caractère `|` permet d'écrire plusieurs commandes à la suite
+              run: |
+                docker compose up -d
+                docker compose down
