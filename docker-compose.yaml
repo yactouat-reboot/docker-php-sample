@@ -56,8 +56,8 @@ services:
     restart: always
     # user Linux à l'intérieur du container
     user: root
-    secrets:
-      - db-password
+    # secrets:
+    #   - db-password
     volumes:
       # named volume: on donne un nom arbitraire à un volume;
       # Docker qui se charge auto du management de ce volume;
